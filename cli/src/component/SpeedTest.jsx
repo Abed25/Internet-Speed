@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../styles/SpeedTest.css"; // Import CSS
+import "../styles/speedtest.css"; // Import CSS
 
 const SpeedTest = () => {
   const [speed, setSpeed] = useState(null);
