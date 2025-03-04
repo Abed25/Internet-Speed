@@ -4,15 +4,15 @@ FROM python:3.10
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy the backend files into the container
-COPY backend/requirements.txt .
+# Copy the requirements file first
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copy everything else from backend
-COPY backend/ .
+# Copy the backend source code
+COPY . .
 
 # Expose the FastAPI port
 EXPOSE 8000
