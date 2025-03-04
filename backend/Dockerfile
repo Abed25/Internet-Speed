@@ -1,21 +1,21 @@
-# Use the official Python image
+# Use official Python image
 FROM python:3.10
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file
-COPY requirements.txt .
+# Copy the backend files into the container
+COPY backend/requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire project
-COPY . .
+# Copy everything else from backend
+COPY backend/ .
 
-# Expose the port FastAPI will run on
+# Expose the FastAPI port
 EXPOSE 8000
 
-# Command to run the app
+# Run the FastAPI app
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
