@@ -14,7 +14,9 @@ const SpeedTest = () => {
 
     try {
       console.log("Fetching speed test data...");
-      const response = await axios.get("http://127.0.0.1:8000/speedtest");
+      const response = await axios.get(
+        "https://internet-speed-production.up.railway.app/speedtest"
+      );
       console.log("Response received:", response.data);
 
       setSpeed(response.data);
